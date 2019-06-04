@@ -42,7 +42,7 @@ def rl_train(sess, mm, t_rw, t_steps):
     isStop = np.zeros([FLAGS.batch_size], dtype=np.int32)
     max_id = FLAGS.batch_size
     init_states = np.zeros([FLAGS.batch_size, FLAGS.hidden_dim], dtype=np.float32)
-    state = sess.run(mm.df_state, feed_dict={mm.topics: init_states})
+    state = sess.run(mm.df_state)
 
     D = deque()
     ssq = []
@@ -54,7 +54,7 @@ def rl_train(sess, mm, t_rw, t_steps):
         flags = len(data_ID) / FLAGS.batch_size + 1
     for i in range(flags):
         x, x_len, y = get_df_batch(i)
-        feed_dic = {mm.input_x: x, mm.x_len: x_len, mm.input_y: y, mm.topics: init_states, mm.dropout_keep_prob: 1.0}
+        feed_dic = {mm.input_x: x, mm.x_len: x_len, mm.input_y: y, mm.dropout_keep_prob: 1.0}
         t_ssq = sess.run(mm.out_seq, feed_dic)
         if len(ssq) > 0:
             ssq = np.append(ssq, t_ssq, axis=0)
@@ -101,7 +101,7 @@ def rl_train(sess, mm, t_rw, t_steps):
         for j in range(FLAGS.batch_size):
             if isStop[j] == 1:
                 init_states = np.zeros([FLAGS.batch_size, FLAGS.hidden_dim], dtype=np.float32)
-                state[j] = sess.run(mm.df_state, feed_dict={mm.topics: init_states})
+                state[j] = sess.run(mm.df_state)
 
         counter += 1
 
