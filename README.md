@@ -27,4 +27,4 @@ Twitter DataSet: https://figshare.com/articles/PHEME_dataset_of_rumours_and_non-
 3. Run `python main.py` to train and evaluate the model.
 
 ## Early Rumour Detection (Torch)
-If there are problems with the codes, you can try the newly uploaded torch codes.
+If there are problems with the codes, you can try the newly uploaded torch codes by Menglong Lu.
