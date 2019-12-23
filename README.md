@@ -25,3 +25,6 @@ Twitter DataSet: https://figshare.com/articles/PHEME_dataset_of_rumours_and_non-
 2. Download glove word vectors: http://nlp.stanford.edu/data/glove.840B.300d.zip, and set the `w2v_file_path` in `config.py`.
 
 3. Run `python main.py` to train and evaluate the model.
+
+## Early Rumour Detection (Torch)
+If there are problems with the code, you can try the newly uploaded torch codes.
